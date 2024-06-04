@@ -27,13 +27,13 @@ export default function App() {
       )
     );
   }
-  function handleClearItemList() {
+  function handleClearItemList(ev) {
     const confirm = Boolean(
       window.confirm("Are you sure to delete all items in the list?")
     );
-    window.preventDefault();
     console.log(confirm);
     if (confirm) setItemList([]);
+    ev.preventDefault();
   }
 
   return (

@@ -7,10 +7,21 @@ export default function Data({
   onClearItemList,
 }) {
   const [sortOption, setSortOption] = useState("default");
+  let sortedItems;
+  if (sortOption === "default") sortedItems = itemList;
+  else if (sortOption === "name") {
+    sortedItems = itemList
+      .slice()
+      .sort((a, b) => a.description.localeCompare(b.description));
+  } else {
+    sortedItems = itemList
+      .slice()
+      .sort((a, b) => Number(a.packed) - Number(b.packed));
+  }
   return (
     <div className="data">
       <ul className="list">
-        {itemList.map((i) => (
+        {sortedItems.map((i) => (
           <li key={i.id}>
             <input
               type="checkbox"

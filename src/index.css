@@ -5,19 +5,22 @@
 }
 
 body {
-  /* padding: 20px; */
+  padding: 20px 20px;
   min-height: 100vh;
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #8bc6ec;
+  /* background-color: #8bc6ec; */
   background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+  background-color: #1b2845;
+  background-image: linear-gradient(315deg, #1b2845 0%, #7682f3 74%);
+
   overflow-y: auto;
 }
 
 .app {
-  background-color: rgba(255, 255, 255, 0.474);
+  background-image: linear-gradient(135deg, #fcedd9 0%, #ffc8b5 100%);
   max-width: 800px;
   padding: 40px;
   border-radius: 10px;
@@ -33,9 +36,13 @@ body {
 }
 
 /* ==============Input */
+input[type="text"] {
+  text-transform: capitalize;
+}
 .input {
   display: flex;
   justify-content: center;
+  /* padding-bottom: 20px; */
 }
 
 .input input {
@@ -71,11 +78,18 @@ body {
 
 /* ==========Data */
 
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 40px;
+}
 .data .list {
   display: flex;
   flex-direction: column;
   gap: 10px;
   border: 2px solid rgba(128, 128, 128, 0.124);
+  border: 2px solid #7682f3;
   border-radius: 20px;
   /* justify-content: center;
   align-items: center;
@@ -83,7 +97,7 @@ body {
   flex-wrap: wrap; */
   padding: 10px;
   min-height: 200px;
-  margin: 30px 0;
+  /* margin: 30px 0; */
   background-color: #9599e21b;
 }
 
@@ -97,6 +111,7 @@ body {
   justify-content: space-between;
   border-radius: 10px;
   background-color: rgba(129, 140, 243, 0.141);
+  border: 1px solid rgb(196, 167, 228);
 }
 
 .data .list li:hover {
@@ -121,6 +136,7 @@ body {
 
 .data .list li .itemName {
   font-size: 20px;
+  text-transform: capitalize;
 }
 
 .data .list li .rightSec button.cross {
@@ -139,6 +155,7 @@ body {
   /* background-color: rgb(247, 171, 171); */
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .data .dataFormat .sort {
@@ -148,6 +165,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   color: rgb(95, 111, 255);
+  font-weight: 700;
 }
 
 .data .dataFormat .clear {
@@ -158,6 +176,8 @@ body {
   background-color: white;
   cursor: pointer;
   color: rgb(95, 111, 255);
+  font-weight: 700;
+  flex-grow: 1;
 }
 
 .data .dataFormat .sort option {
@@ -171,8 +191,9 @@ body {
 /* =============Footer */
 footer {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
   color: rgb(103, 103, 216);
+  font-weight: 700;
 }
 
 @keyframes rotate {
@@ -188,7 +209,6 @@ footer {
 @media screen and (max-width: 500px) {
   body {
     background-color: rgb(250, 249, 197);
-    padding: 0;
   }
   .input {
     flex-direction: column;
@@ -208,10 +228,31 @@ footer {
     border: 1px solid rgb(201, 150, 248);
   }
   .app {
-    padding: 40px 20px;
-    height: 100%;
+    padding: 40px 40px;
+    /* height: 100%; */
   }
   footer {
-    min-height: 120px;
+    /* min-height: 120px; */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .app {
+    padding: 20px 20px;
+  }
+  .header {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .app {
+    padding: 20px 10px;
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  body {
+    padding: 0;
   }
 }

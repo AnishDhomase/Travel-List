@@ -1,13 +1,15 @@
 import { useState } from "react";
 
 export default function Input({ onAddItem }) {
-  const [itemCount, setItemCount] = useState(0);
+  const [itemCount, setItemCount] = useState(null);
   const [itemName, setItemName] = useState("");
 
   function handleSubmit(ev) {
     ev.preventDefault();
-    if (!itemName) {
-      alert("Please enter Item Name!");
+    if (!itemName || !itemCount) {
+      if (!itemName && !itemCount) alert("Please enter Item Name and Count!");
+      else if (!itemName) alert("Please enter Item Name!");
+      else alert("Please enter Item Count!");
       return;
     }
     onAddItem({
@@ -16,7 +18,7 @@ export default function Input({ onAddItem }) {
       quantity: itemCount,
       packed: false,
     });
-    setItemCount(0);
+    setItemCount(1);
     setItemName("");
   }
 
